@@ -25,7 +25,8 @@ app.get('/api/hello', function (req, res) {
 });
 
 app.get('/api/whoami', function(req, res) {
-//IP validation regex credit to: https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
+//IP validation regex credit to StackOverflow user: enginer 
+//found at:https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
   headers = req.rawHeaders
   
   ipRegex = new RegExp('^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$')
