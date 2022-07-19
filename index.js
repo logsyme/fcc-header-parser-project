@@ -37,6 +37,10 @@ app.get('/api/whoami', function(req, res) {
     return item === "Accept-Language"
   })+1]
 
+  software = headers[headers.findIndex((item) => {
+    return item === "User-Agent"
+  })+1]
+
   res.json({ipaddress: ipaddress, language: language, software: software})
 })
 
