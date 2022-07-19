@@ -24,6 +24,18 @@ app.get('/api/hello', function (req, res) {
   res.json({ greeting: 'hello API' });
 });
 
+app.get('/api/whoami', function(req, res) {
+//IP validation regex credit to: https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
+  
+  ipRegex = new RegExp('^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$')
+  //res.json({req})
+  ipaddress = req.rawHeaders.find((item) => {
+    return ipRegex.test(item)
+  })
+  //console.log(req.rawHeaders[27])
+  res.json({ipaddress: ipaddress})
+})
+
 // listen for requests :)
 var listener = app.listen(process.env.PORT || 3000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
